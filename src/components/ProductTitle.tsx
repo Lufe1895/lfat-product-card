@@ -9,15 +9,15 @@ export interface Props {
     style?: React.CSSProperties 
 }
 
-export const ProductTitle = ({ className, style }:Props) => {
+export const ProductTitle = ({ title, className, style }:Props) => {
     const { product } = useContext(ProductContext);
-    const { title } = product;
+
     return (
         <span 
             className={ `${ styles.productDescription } ${ className }` }
             style={ style }
         >
-            { title }
+            { title ? title : product.title }
         </span>
     );
 }

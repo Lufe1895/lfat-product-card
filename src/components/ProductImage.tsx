@@ -9,14 +9,23 @@ export interface Props {
     style?: React.CSSProperties 
 }
 
-export const ProductImage = ({ className, style }:Props) => {
+export const ProductImage = ({ img, className, style }:Props) => {
     const { product } = useContext(ProductContext);
-    const { img } = product;
+    let image:string = '';
+    
+    if (img) {
+        image = img;
+    } else if (product.img) {
+        image = product.img;
+    } else {
+        image = noImage;
+    }
+
     return (
         <img 
             className={ `${ styles.productImg } ${ className }` } 
             style={ style }
-            src={ img ? img : noImage } 
+            src={ image } 
             alt="Product" 
         />
     );
