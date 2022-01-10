@@ -7,10 +7,10 @@ export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
 export interface Props {
-    children: (args:ProductCardHandlers) => JSX.Element,
+    children:(args:ProductCardHandlers) => JSX.Element,
     product:Product,
     className?:string,
-    style?: React.CSSProperties,
+    style?:React.CSSProperties,
     onChange?:(args:onChangeArgs) => void,
     value?:number,
     initialValues?:InitialValues,
